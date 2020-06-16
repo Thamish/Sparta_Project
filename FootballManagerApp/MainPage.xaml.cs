@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,19 +14,23 @@ using System.Windows.Shapes;
 namespace FootballManagerApp
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MainPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainPage : Page
     {
-        public MainWindow()
+        public MainPage()
         {
             InitializeComponent();
-            Loaded += MainWindow_Loaded;
         }
 
-        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        private void PlayersButton_Click(object sender, RoutedEventArgs e)
         {
-            frame.NavigationService.Navigate(new MainPage());
+            this.NavigationService.Navigate(new Players());
+        }
+
+        private void TeamsButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Players());
         }
     }
 }

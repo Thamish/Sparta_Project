@@ -53,3 +53,9 @@ C:\Users\thami\source\repos\Thamish\Sparta_Project\FootballManagerApp\bin\Debug\
 C:\Users\thami\source\repos\Thamish\Sparta_Project\FootballManagerApp\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
 C:\Users\thami\source\repos\Thamish\Sparta_Project\FootballManagerApp\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\thami\source\repos\Thamish\Sparta_Project\FootballManagerApp\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\thami\source\repos\Thamish\Sparta_Project\FootballManagerApp\obj\Debug\netcoreapp3.1\MainPage.g.cs
+C:\Users\thami\source\repos\Thamish\Sparta_Project\FootballManagerApp\obj\Debug\netcoreapp3.1\MainPage.baml
+C:\Users\thami\source\repos\Thamish\Sparta_Project\FootballManagerApp\obj\Debug\netcoreapp3.1\Players.g.cs
+C:\Users\thami\source\repos\Thamish\Sparta_Project\FootballManagerApp\obj\Debug\netcoreapp3.1\Players.baml
+C:\Users\thami\source\repos\Thamish\Sparta_Project\FootballManagerApp\obj\Debug\netcoreapp3.1\Teams.g.cs
+C:\Users\thami\source\repos\Thamish\Sparta_Project\FootballManagerApp\obj\Debug\netcoreapp3.1\Teams.baml

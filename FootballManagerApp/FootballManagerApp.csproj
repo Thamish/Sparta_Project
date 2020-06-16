@@ -7,8 +7,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Background.jpg" />
+    <None Remove="football.png" />
+    <None Remove="Title.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\CRUDManager\CRUDManager.csproj" />
     <ProjectReference Include="..\EF\EF.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Background.jpg" />
+    <Resource Include="football.png" />
+    <Resource Include="Title.jpg" />
   </ItemGroup>
 
 </Project>
