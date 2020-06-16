@@ -1,7 +1,8 @@
 ﻿--//Delete Tables
 --DROP TABLE Players;
---DROP TABLE Clubs;
+--DROP TABLE Teams;
 --DROP TABLE Positions;
+--DROP TABLE PlayerTeams;
 
 --//Create Tables
 CREATE TABLE Positions
@@ -10,10 +11,10 @@ CREATE TABLE Positions
 	positionDescription VARCHAR(10) NOT NULL
 );
 
-CREATE TABLE Clubs
+CREATE TABLE Teams
 (
-	clubID INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-	clubname VARCHAR(50) NOT NULL
+	teamID INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	teamName VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE Players
@@ -23,6 +24,11 @@ CREATE TABLE Players
 	lastName VARCHAR(50),
 	positionId INT REFERENCES Positions(positionID),
 	nationality VARCHAR(50),
-	clubId INT REFERENCES Clubs(ClubID),
 	dateOfBirth DATE
 );
+
+CREATE TABLE PlayerTeams
+(
+	playerID INT PRIMARY KEY REFERENCES Players(playerID),
+	teamID INT REFERENCES Teams(teamID)
+)
