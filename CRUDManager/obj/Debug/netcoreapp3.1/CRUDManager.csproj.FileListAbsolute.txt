@@ -1,0 +1,13 @@
+C:\Users\thami\source\repos\Thamish\Sparta_Project\CRUDManager\bin\Debug\netcoreapp3.1\CRUDManager.exe
+C:\Users\thami\source\repos\Thamish\Sparta_Project\CRUDManager\bin\Debug\netcoreapp3.1\CRUDManager.deps.json
+C:\Users\thami\source\repos\Thamish\Sparta_Project\CRUDManager\bin\Debug\netcoreapp3.1\CRUDManager.runtimeconfig.json
+C:\Users\thami\source\repos\Thamish\Sparta_Project\CRUDManager\bin\Debug\netcoreapp3.1\CRUDManager.runtimeconfig.dev.json
+C:\Users\thami\source\repos\Thamish\Sparta_Project\CRUDManager\bin\Debug\netcoreapp3.1\CRUDManager.dll
+C:\Users\thami\source\repos\Thamish\Sparta_Project\CRUDManager\bin\Debug\netcoreapp3.1\CRUDManager.pdb
+C:\Users\thami\source\repos\Thamish\Sparta_Project\CRUDManager\obj\Debug\netcoreapp3.1\CRUDManager.csprojAssemblyReference.cache
+C:\Users\thami\source\repos\Thamish\Sparta_Project\CRUDManager\obj\Debug\netcoreapp3.1\CRUDManager.AssemblyInfoInputs.cache
+C:\Users\thami\source\repos\Thamish\Sparta_Project\CRUDManager\obj\Debug\netcoreapp3.1\CRUDManager.AssemblyInfo.cs
+C:\Users\thami\source\repos\Thamish\Sparta_Project\CRUDManager\obj\Debug\netcoreapp3.1\CRUDManager.csproj.CoreCompileInputs.cache
+C:\Users\thami\source\repos\Thamish\Sparta_Project\CRUDManager\obj\Debug\netcoreapp3.1\CRUDManager.dll
+C:\Users\thami\source\repos\Thamish\Sparta_Project\CRUDManager\obj\Debug\netcoreapp3.1\CRUDManager.pdb
+C:\Users\thami\source\repos\Thamish\Sparta_Project\CRUDManager\obj\Debug\netcoreapp3.1\CRUDManager.genruntimeconfig.cache

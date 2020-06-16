@@ -1,0 +1,13 @@
+C:\Users\thami\source\repos\Thamish\Sparta_Project\EF\bin\Debug\netcoreapp3.1\EF.exe
+C:\Users\thami\source\repos\Thamish\Sparta_Project\EF\bin\Debug\netcoreapp3.1\EF.deps.json
+C:\Users\thami\source\repos\Thamish\Sparta_Project\EF\bin\Debug\netcoreapp3.1\EF.runtimeconfig.json
+C:\Users\thami\source\repos\Thamish\Sparta_Project\EF\bin\Debug\netcoreapp3.1\EF.runtimeconfig.dev.json
+C:\Users\thami\source\repos\Thamish\Sparta_Project\EF\bin\Debug\netcoreapp3.1\EF.dll
+C:\Users\thami\source\repos\Thamish\Sparta_Project\EF\bin\Debug\netcoreapp3.1\EF.pdb
+C:\Users\thami\source\repos\Thamish\Sparta_Project\EF\obj\Debug\netcoreapp3.1\EF.csprojAssemblyReference.cache
+C:\Users\thami\source\repos\Thamish\Sparta_Project\EF\obj\Debug\netcoreapp3.1\EF.AssemblyInfoInputs.cache
+C:\Users\thami\source\repos\Thamish\Sparta_Project\EF\obj\Debug\netcoreapp3.1\EF.AssemblyInfo.cs
+C:\Users\thami\source\repos\Thamish\Sparta_Project\EF\obj\Debug\netcoreapp3.1\EF.csproj.CoreCompileInputs.cache
+C:\Users\thami\source\repos\Thamish\Sparta_Project\EF\obj\Debug\netcoreapp3.1\EF.dll
+C:\Users\thami\source\repos\Thamish\Sparta_Project\EF\obj\Debug\netcoreapp3.1\EF.pdb
+C:\Users\thami\source\repos\Thamish\Sparta_Project\EF\obj\Debug\netcoreapp3.1\EF.genruntimeconfig.cache
