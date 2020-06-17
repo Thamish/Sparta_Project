@@ -112,6 +112,8 @@ namespace FootballManagerApp
                 _crudManager.Submit(FirstNameText.Text, LastNameText.Text, NationalityText.Text,
                     DOBText.Text, _crudManager.SelectedTeams, (EF.Positions)PositionBox.SelectedItem);
             }
+            MessageBox.Show("Player Added!");
+            this.NavigationService.Navigate(new PlayerOptions());
         }
     }
 }

@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
 C:\Users\thami\source\repos\Thamish\Sparta_Project\FootballManagerApp\App.xaml
-51720638694
+6931449694
 
-91479847288
+101167823140
 2121645462864
-AddPlayer.xaml;MainPage.xaml;MainWindow.xaml;Players.xaml;Teams.xaml;
+AddPlayer.xaml;EditPlayer.xaml;MainPage.xaml;MainWindow.xaml;PlayerOptions.xaml;Teams.xaml;
 
-False
+True
 

@@ -14,23 +14,25 @@ using System.Windows.Shapes;
 namespace FootballManagerApp
 {
     /// <summary>
-    /// Interaction logic for Players.xaml
+    /// Interaction logic for PlayerOptions.xaml
     /// </summary>
-    public partial class Players : Page
+    public partial class PlayerOptions : Page
     {
-        public Players()
+        public PlayerOptions()
         {
             InitializeComponent();
         }
-
         private void Home_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new MainPage());
         }
-
         private void AddPlayerButton_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new AddPlayer());
+        }
+        private void EditPlayerButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new EditPlayer());
         }
     }
 }

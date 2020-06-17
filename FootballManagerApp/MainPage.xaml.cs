@@ -25,7 +25,7 @@ namespace FootballManagerApp
 
         private void PlayersButton_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Players());
+            this.NavigationService.Navigate(new PlayerOptions());
         }
 
         private void TeamsButton_Click(object sender, RoutedEventArgs e)
