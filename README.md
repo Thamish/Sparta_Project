@@ -17,10 +17,18 @@ My sprint goal was to get set up so I would be able create my project
 
 **Output Of Sprint Review**
 
+Competed all the items in the backlog for this sprint 
+
 **Sprint Retrospective**
+
+<ins>Went Well</ins> : Competed all the items in the backlog for this sprint
+
+<ins>Next Sprint</ins> : I hope to add a create player and team functionality
 
 **Overall Project Retrospective**
 
 **Project Board At Start**
+
+![](/FootballManagerApp/Images/boardStart.PNG)
 
 **Project Board At End**
