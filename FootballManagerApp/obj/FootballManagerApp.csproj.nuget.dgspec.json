@@ -26,7 +26,11 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\thami\\source\\repos\\Thamish\\Sparta_Project\\EF\\EF.csproj": {
+                "projectPath": "C:\\Users\\thami\\source\\repos\\Thamish\\Sparta_Project\\EF\\EF.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

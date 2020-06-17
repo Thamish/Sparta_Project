@@ -30,7 +30,7 @@ namespace FootballManagerApp
 
         private void TeamsButton_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Players());
+            this.NavigationService.Navigate(new Teams());
         }
     }
 }

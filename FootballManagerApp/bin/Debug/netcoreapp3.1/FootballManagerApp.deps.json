@@ -823,6 +823,9 @@
         }
       },
       "CRUDManager/1.0.0": {
+        "dependencies": {
+          "EF": "1.0.0"
+        },
         "runtime": {
           "CRUDManager.dll": {}
         }

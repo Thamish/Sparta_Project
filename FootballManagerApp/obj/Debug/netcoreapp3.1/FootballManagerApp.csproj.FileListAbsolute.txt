@@ -59,3 +59,5 @@ C:\Users\thami\source\repos\Thamish\Sparta_Project\FootballManagerApp\obj\Debug\
 C:\Users\thami\source\repos\Thamish\Sparta_Project\FootballManagerApp\obj\Debug\netcoreapp3.1\Players.baml
 C:\Users\thami\source\repos\Thamish\Sparta_Project\FootballManagerApp\obj\Debug\netcoreapp3.1\Teams.g.cs
 C:\Users\thami\source\repos\Thamish\Sparta_Project\FootballManagerApp\obj\Debug\netcoreapp3.1\Teams.baml
+C:\Users\thami\source\repos\Thamish\Sparta_Project\FootballManagerApp\obj\Debug\netcoreapp3.1\AddPlayer.g.cs
+C:\Users\thami\source\repos\Thamish\Sparta_Project\FootballManagerApp\obj\Debug\netcoreapp3.1\AddPlayer.baml

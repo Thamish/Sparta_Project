@@ -1256,6 +1256,9 @@
       "CRUDManager/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "EF": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/CRUDManager.dll": {}
         },

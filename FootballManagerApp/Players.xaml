@@ -9,6 +9,8 @@
       Title="Players">
 
     <Grid>
-        
+        <Button x:Name="Home" Content="Home" HorizontalAlignment="Left" Height="47" Margin="10,10,0,0" VerticalAlignment="Top" Width="66" FontSize="16" Click="Home_Click"/>
+        <Button x:Name="AddPlayerButton" Content="Add Player" HorizontalAlignment="Left" Height="68" Margin="180,259,0,0" VerticalAlignment="Top" Width="139" FontSize="18" Click="AddPlayerButton_Click"/>
+
     </Grid>
 </Page>

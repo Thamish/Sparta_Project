@@ -22,5 +22,15 @@ namespace FootballManagerApp
         {
             InitializeComponent();
         }
+
+        private void Home_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new MainPage());
+        }
+
+        private void AddPlayerButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new AddPlayer());
+        }
     }
 }
