@@ -33,25 +33,19 @@ namespace EF
         {
             modelBuilder.Entity<PlayerTeams>(entity =>
             {
-                entity.HasKey(e => e.PlayerId)
-                    .HasName("PK__PlayerTe__2CDA01D1ED4D04BE");
-
-                entity.Property(e => e.PlayerId)
-                    .HasColumnName("playerID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.PlayerId).HasColumnName("playerID");
 
                 entity.Property(e => e.TeamId).HasColumnName("teamID");
 
                 entity.HasOne(d => d.Player)
-                    .WithOne(p => p.PlayerTeams)
-                    .HasForeignKey<PlayerTeams>(d => d.PlayerId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__PlayerTea__playe__44CA3770");
+                    .WithMany(p => p.PlayerTeams)
+                    .HasForeignKey(d => d.PlayerId)
+                    .HasConstraintName("FK__PlayerTea__playe__4F47C5E3");
 
                 entity.HasOne(d => d.Team)
                     .WithMany(p => p.PlayerTeams)
                     .HasForeignKey(d => d.TeamId)
-                    .HasConstraintName("FK__PlayerTea__teamI__45BE5BA9");
+                    .HasConstraintName("FK__PlayerTea__teamI__503BEA1C");
             });
 
             modelBuilder.Entity<Players>(entity =>

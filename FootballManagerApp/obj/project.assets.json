@@ -4963,8 +4963,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "CRUDManager >= 1.0.0",
-      "EF >= 1.0.0"
+      "CRUDManager >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -4995,9 +4994,6 @@
           "projectReferences": {
             "C:\\Users\\thami\\source\\repos\\Thamish\\Sparta_Project\\CRUDManager\\CRUDManager.csproj": {
               "projectPath": "C:\\Users\\thami\\source\\repos\\Thamish\\Sparta_Project\\CRUDManager\\CRUDManager.csproj"
-            },
-            "C:\\Users\\thami\\source\\repos\\Thamish\\Sparta_Project\\EF\\EF.csproj": {
-              "projectPath": "C:\\Users\\thami\\source\\repos\\Thamish\\Sparta_Project\\EF\\EF.csproj"
             }
           }
         }

@@ -8,8 +8,7 @@
     ".NETCoreApp,Version=v3.1": {
       "FootballManagerApp/1.0.0": {
         "dependencies": {
-          "CRUDManager": "1.0.0",
-          "EF": "1.0.0"
+          "CRUDManager": "1.0.0"
         },
         "runtime": {
           "FootballManagerApp.dll": {}
