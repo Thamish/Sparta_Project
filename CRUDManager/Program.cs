@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using EF;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 
 namespace CRUDManager
 {
@@ -18,10 +19,40 @@ namespace CRUDManager
             using var db = new FootballContext();
             return db.Teams.ToList();
         }
+        public static List<Positions> RetrievePositions()
+        {
+            using var db = new FootballContext();
+            return db.Positions.ToList();
+        }
 
         public void SetSelectedTeam(object selectedItem)
         {
             SelectedTeam = (Teams)selectedItem;
         }
-    }
+        public void Submit(string firstName, string lastName, string nationality, string dob,
+            List<Teams> selectedTeams, Positions pos)
+        {
+            using var db = new FootballContext();
+            Players newPlayer = new Players
+            {
+                FirstName = firstName,
+                LastName = lastName,
+                Nationality = nationality,
+                DateOfBirth = DateTime.Parse(dob),
+                PositionId = pos.PositionId
+            };
+            db.Players.Add(newPlayer);
+            db.SaveChanges();
+            foreach (var team in selectedTeams)
+            {
+                PlayerTeams newEntry = new PlayerTeams
+                {
+                    PlayerId = newPlayer.PlayerId,
+                    TeamId = team.TeamId
+                };
+                db.PlayerTeams.Add(newEntry);
+            };
+            db.SaveChanges();
+        }
+}
 }

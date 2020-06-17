@@ -24,6 +24,7 @@ namespace FootballManagerApp
         {
             InitializeComponent();
             TeamsBox.ItemsSource = CRUDManager.Program.RetrieveTeams();
+            PositionBox.ItemsSource = CRUDManager.Program.RetrievePositions();
         }
         private void Home_Click(object sender, RoutedEventArgs e)
         {
@@ -98,6 +99,18 @@ namespace FootballManagerApp
             else
             {
                 MessageBox.Show("Team Not Selected");
+            }
+        }
+
+        private void SubmitButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (FirstNameText.Text != "" && FirstNameText.Text != "First Name" &&
+                NationalityText.Text != "" && NationalityText.Text != "Nationality" &&
+                DOBText.Text != "" && DOBText.Text != "YYYY/MM/DD" &&
+                _crudManager.SelectedTeams.Count > 0 && PositionBox.SelectedItem != null)
+            {
+                _crudManager.Submit(FirstNameText.Text, LastNameText.Text, NationalityText.Text,
+                    DOBText.Text, _crudManager.SelectedTeams, (EF.Positions)PositionBox.SelectedItem);
             }
         }
     }
