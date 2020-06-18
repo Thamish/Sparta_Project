@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EF;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -21,7 +22,14 @@ namespace FootballManagerApp
         public RemovePlayer()
         {
             InitializeComponent();
-            PlayersListBox.ItemsSource = CRUDManager.Program.RetrievePlayers(); 
+            PlayersListBox.ItemsSource = CRUDManager.Program.RetrievePlayers();
+            List<Positions> positionslist = new List<Positions>();
+            positionslist.Add(new Positions { PositionId = 6, PositionDescription = "All" });
+            foreach (var position in CRUDManager.Program.RetrievePositions())
+            {
+                positionslist.Add(position);
+            }
+            Positionfilter.ItemsSource = positionslist;
         }
         private void Home_Click(object sender, RoutedEventArgs e)
         {
@@ -44,6 +52,17 @@ namespace FootballManagerApp
                         break;
                 }
             }
+        }
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            PlayersListBox.ItemsSource = null;
+            PlayersListBox.ItemsSource = CRUDManager.Program.FilterPlayers(FirstNamefilter.Text, (Positions)Positionfilter.SelectedItem);
+        }
+
+        private void Positionfilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            PlayersListBox.ItemsSource = null;
+            PlayersListBox.ItemsSource = CRUDManager.Program.FilterPlayers(FirstNamefilter.Text, (Positions)Positionfilter.SelectedItem);
         }
     }
 }

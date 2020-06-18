@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Xml.Linq;
 using EF;
 using Microsoft.EntityFrameworkCore;
@@ -165,6 +167,55 @@ namespace CRUDManager
             }
             db.Teams.Remove(selectedTeam);
             db.SaveChanges();
+        }
+
+        public static List<Players> FilterPlayers(string filter, Positions pos)
+        {
+            using var db = new FootballContext();
+            if (filter == "")
+            {
+                if ((pos == null || pos.PositionId == 6))
+                {
+                    return db.Players.ToList<Players>();
+                }
+                else
+                {
+                    var quary =
+                    db.Players.Where(o => o.PositionId == pos.PositionId)
+                    .OrderBy(o => o.FirstName);
+                    return quary.ToList<Players>(); ;
+                }
+            }
+            else if ((pos == null || pos.PositionId == 6))
+            {   
+                var quary =
+                    db.Players.Where(o => o.FirstName.Contains(filter))
+                    .OrderBy(o => o.FirstName);
+                return quary.ToList<Players>();
+            }
+            else
+            {
+                var quary =
+                    db.Players.Where(o => o.FirstName.Contains(filter) && o.PositionId == pos.PositionId)
+                    .OrderBy(o => o.FirstName);
+                return quary.ToList<Players>();
+            }
+        }
+
+        public static List<Teams> FilterTeams(string filter)
+        {
+            using var db = new FootballContext();
+            if (filter == "")
+            {
+                return null;
+            }
+            else
+            {
+                var quary =
+                    db.Teams.Where(o => o.TeamName.Contains(filter))
+                    .OrderBy(o => o.TeamName);
+                return quary.ToList<Teams>();
+            }
         }
     }
 }

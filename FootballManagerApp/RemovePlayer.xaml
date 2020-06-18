@@ -14,8 +14,10 @@
     <Grid>
         <Button x:Name="Home" Content="Home" HorizontalAlignment="Left" Height="47" Margin="10,10,0,0" VerticalAlignment="Top" Width="66" FontSize="16" Click="Home_Click" />
         <TextBox x:Name="TitleText" BorderThickness="0" HorizontalAlignment="Center" Margin="0,10,0,0" Text="Remove Player" TextWrapping="Wrap" VerticalAlignment="Top" Width="392" Height="61" IsReadOnly="True" Background="{x:Null}" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="36" FontFamily="Roland" BorderBrush="{x:Null}" SelectionBrush="{x:Null}"/>
-        <ListBox x:Name="PlayersListBox" Margin="43,143,431,65"/>
-        <Button x:Name="RemovePlayerButton" Content="Remove" HorizontalAlignment="Left" Margin="533,482,0,0" VerticalAlignment="Top" Height="53" Width="86" FontSize="16" Click="RemovePlayerButton_Click"/>
-
+        <ListBox x:Name="PlayersListBox" Margin="170,158,346,50" FontSize="16"/>
+        <Button x:Name="RemovePlayerButton" Content="Remove" HorizontalAlignment="Left" Margin="544,418,0,0" VerticalAlignment="Top" Height="53" Width="86" FontSize="16" Click="RemovePlayerButton_Click"/>
+        <TextBox x:Name="FirstNamefilter" MaxLength="12" HorizontalAlignment="Left" Margin="500,257,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="193" TextChanged="TextBox_TextChanged" Height="43" RenderTransformOrigin="0.583,0.093" FontSize="14"/>
+        <ComboBox x:Name="Positionfilter" HorizontalAlignment="Left" Margin="518,336,0,0" VerticalAlignment="Top" Width="138" SelectionChanged="Positionfilter_SelectionChanged" Height="36" FontSize="14"/>
+        <TextBox x:Name="FilterTitle" BorderThickness="0" HorizontalAlignment="Left" Margin="481,226,0,0" IsReadOnly="True" Text="Filter by First Name :" TextWrapping="Wrap" VerticalAlignment="Top" Width="212" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Calisto MT" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" FontSize="18" />
     </Grid>
 </Page>

@@ -1,4 +1,5 @@
 ﻿using CRUDManager;
+using EF;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -23,7 +24,15 @@ namespace FootballManagerApp
         public AddTeam()
         {
             InitializeComponent();
+            List<Positions> positionslist = new List<Positions>();
+            positionslist.Add(new Positions { PositionId = 6, PositionDescription = "All" });
+            foreach (var position in CRUDManager.Program.RetrievePositions())
+            {
+                positionslist.Add(position);
+            }
+            Positionfilter.ItemsSource = positionslist;
             PlayersListBox.ItemsSource = CRUDManager.Program.RetrievePlayers();
+            
         }
         private void Home_Click(object sender, RoutedEventArgs e)
         {
@@ -63,6 +72,18 @@ namespace FootballManagerApp
             }
             MessageBox.Show("Team Added");
             this.NavigationService.Navigate(new TeamOptions());
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            PlayersListBox.ItemsSource = null;
+            PlayersListBox.ItemsSource = CRUDManager.Program.FilterPlayers(FirstNamefilter.Text, (Positions)Positionfilter.SelectedItem);
+        }
+
+        private void Positionfilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            PlayersListBox.ItemsSource = null;
+            PlayersListBox.ItemsSource = CRUDManager.Program.FilterPlayers(FirstNamefilter.Text, (Positions)Positionfilter.SelectedItem);
         }
     }
 }

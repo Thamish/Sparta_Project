@@ -43,18 +43,18 @@ namespace EF
                 entity.HasOne(d => d.Player)
                     .WithMany(p => p.PlayerTeams)
                     .HasForeignKey(d => d.PlayerId)
-                    .HasConstraintName("FK__PlayerTea__playe__0F2D40CE");
+                    .HasConstraintName("FK__PlayerTea__playe__3552E9B6");
 
                 entity.HasOne(d => d.Team)
                     .WithMany(p => p.PlayerTeams)
                     .HasForeignKey(d => d.TeamId)
-                    .HasConstraintName("FK__PlayerTea__teamI__10216507");
+                    .HasConstraintName("FK__PlayerTea__teamI__36470DEF");
             });
 
             modelBuilder.Entity<Players>(entity =>
             {
                 entity.HasKey(e => e.PlayerId)
-                    .HasName("PK__Players__2CDA01D16F47B10A");
+                    .HasName("PK__Players__2CDA01D17D52619A");
 
                 entity.Property(e => e.PlayerId).HasColumnName("playerID");
 
@@ -82,13 +82,13 @@ namespace EF
                 entity.HasOne(d => d.Position)
                     .WithMany(p => p.Players)
                     .HasForeignKey(d => d.PositionId)
-                    .HasConstraintName("FK__Players__positio__0C50D423");
+                    .HasConstraintName("FK__Players__positio__32767D0B");
             });
 
             modelBuilder.Entity<Positions>(entity =>
             {
                 entity.HasKey(e => e.PositionId)
-                    .HasName("PK__Position__B07CF58E45793DF6");
+                    .HasName("PK__Position__B07CF58EA5BFB184");
 
                 entity.Property(e => e.PositionId).HasColumnName("positionID");
 
@@ -120,13 +120,13 @@ namespace EF
                 entity.HasOne(d => d.Team)
                     .WithMany(p => p.TeamStatistics)
                     .HasForeignKey(d => d.TeamId)
-                    .HasConstraintName("FK__TeamStati__teamI__12FDD1B2");
+                    .HasConstraintName("FK__TeamStati__teamI__39237A9A");
             });
 
             modelBuilder.Entity<Teams>(entity =>
             {
                 entity.HasKey(e => e.TeamId)
-                    .HasName("PK__Teams__5ED7534AA32EE9EB");
+                    .HasName("PK__Teams__5ED7534ABC14F97E");
 
                 entity.Property(e => e.TeamId).HasColumnName("teamID");
 
