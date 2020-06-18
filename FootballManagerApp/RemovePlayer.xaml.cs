@@ -21,10 +21,31 @@ namespace FootballManagerApp
         public RemovePlayer()
         {
             InitializeComponent();
+            PlayersListBox.ItemsSource = CRUDManager.Program.RetrievePlayers(); 
         }
         private void Home_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new MainPage());
+        }
+
+        private void RemovePlayerButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (PlayersListBox.SelectedItem != null)
+            {
+                MessageBoxResult result = MessageBox.Show("Are You Sure?", "Confirmation", MessageBoxButton.YesNo);
+                switch (result)
+                {
+                    case MessageBoxResult.Yes:
+                        CRUDManager.Program.RemovePlayer((EF.Players)PlayersListBox.SelectedItem);
+                        MessageBox.Show("Player Removed", "Confirmation");
+                        this.NavigationService.Navigate(new PlayerOptions());
+                        break;
+                    case MessageBoxResult.No:
+                        break;
+                }
+                
+                
+            }
         }
     }
 }
