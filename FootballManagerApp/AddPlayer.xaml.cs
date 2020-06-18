@@ -109,7 +109,7 @@ namespace FootballManagerApp
                 DOBText.Text != "" && DOBText.Text != "YYYY/MM/DD" &&
                 _crudManager.SelectedTeams.Count > 0 && PositionBox.SelectedItem != null)
             {
-                _crudManager.Submit(FirstNameText.Text, LastNameText.Text, NationalityText.Text,
+                _crudManager.SubmitPlayer(FirstNameText.Text, LastNameText.Text, NationalityText.Text,
                     DOBText.Text, _crudManager.SelectedTeams, (EF.Positions)PositionBox.SelectedItem);
             }
             MessageBox.Show("Player Added!");

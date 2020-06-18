@@ -1,11 +1,4 @@
-﻿--//Delete Tables
-
---DROP TABLE Teams;
---DROP TABLE Positions;
---DROP TABLE PlayerTeams;
---DROP TABLE Players;
-
---//Create Tables
+﻿--//Create Tables
 CREATE TABLE Positions
 (
 	positionID INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
@@ -37,12 +30,12 @@ CREATE TABLE PlayerTeams
 
 CREATE TABLE TeamStatistics
 (
-	playerStatisticsID INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	teamStatisticsID INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
 	teamID INT REFERENCES Teams(teamID),
 	matchesPlayed INT,
 	wins INT,
 	losses INT,
-	draw INT,
+	draws INT,
 	goalsScored INT,
 	goalsConceded INT
 );

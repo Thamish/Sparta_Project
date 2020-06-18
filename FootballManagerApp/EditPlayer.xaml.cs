@@ -72,7 +72,7 @@ namespace FootballManagerApp
         {
             if (Teamsbox.SelectedItem != null)
             {
-                if (SelectedTeamsBox.Items.Contains(Teamsbox.SelectedItem))
+                if (SelectedTeamsBox.Items.Contains(Teamsbox.SelectedItem)==false)
                 {
                     _crudManager.AddTeam((EF.Teams)Teamsbox.SelectedItem, _crudManager.SelectedPlayer);
                     SelectedTeamsBox.ItemsSource = null;
@@ -100,6 +100,19 @@ namespace FootballManagerApp
             {
                 MessageBox.Show("Team Not Selected");
             }
+        }
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (FirstNameText.Text != "" && FirstNameText.Text != "First Name" &&
+                NationalityText.Text != "" && NationalityText.Text != "Nationality" &&
+                DOBText.Text != "" && DOBText.Text != "YYYY/MM/DD" && PositionBox.SelectedItem != null)
+            {
+                _crudManager.SavePlayer(FirstNameText.Text, LastNameText.Text, NationalityText.Text,
+                DOBText.Text, (EF.Positions)PositionBox.SelectedItem, _crudManager.SelectedPlayer);
+            }
+            MessageBox.Show("Player Saved!");
+            
         }
     }
 }

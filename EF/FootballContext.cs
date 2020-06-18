@@ -43,18 +43,18 @@ namespace EF
                 entity.HasOne(d => d.Player)
                     .WithMany(p => p.PlayerTeams)
                     .HasForeignKey(d => d.PlayerId)
-                    .HasConstraintName("FK__PlayerTea__playe__793DFFAF");
+                    .HasConstraintName("FK__PlayerTea__playe__0F2D40CE");
 
                 entity.HasOne(d => d.Team)
                     .WithMany(p => p.PlayerTeams)
                     .HasForeignKey(d => d.TeamId)
-                    .HasConstraintName("FK__PlayerTea__teamI__7A3223E8");
+                    .HasConstraintName("FK__PlayerTea__teamI__10216507");
             });
 
             modelBuilder.Entity<Players>(entity =>
             {
                 entity.HasKey(e => e.PlayerId)
-                    .HasName("PK__Players__2CDA01D125B7FB98");
+                    .HasName("PK__Players__2CDA01D16F47B10A");
 
                 entity.Property(e => e.PlayerId).HasColumnName("playerID");
 
@@ -82,13 +82,13 @@ namespace EF
                 entity.HasOne(d => d.Position)
                     .WithMany(p => p.Players)
                     .HasForeignKey(d => d.PositionId)
-                    .HasConstraintName("FK__Players__positio__76619304");
+                    .HasConstraintName("FK__Players__positio__0C50D423");
             });
 
             modelBuilder.Entity<Positions>(entity =>
             {
                 entity.HasKey(e => e.PositionId)
-                    .HasName("PK__Position__B07CF58EBA6EB132");
+                    .HasName("PK__Position__B07CF58E45793DF6");
 
                 entity.Property(e => e.PositionId).HasColumnName("positionID");
 
@@ -101,12 +101,9 @@ namespace EF
 
             modelBuilder.Entity<TeamStatistics>(entity =>
             {
-                entity.HasKey(e => e.PlayerStatisticsId)
-                    .HasName("PK__TeamStat__A5C796AC9770FA3C");
+                entity.Property(e => e.TeamStatisticsId).HasColumnName("teamStatisticsID");
 
-                entity.Property(e => e.PlayerStatisticsId).HasColumnName("playerStatisticsID");
-
-                entity.Property(e => e.Draw).HasColumnName("draw");
+                entity.Property(e => e.Draws).HasColumnName("draws");
 
                 entity.Property(e => e.GoalsConceded).HasColumnName("goalsConceded");
 
@@ -123,13 +120,13 @@ namespace EF
                 entity.HasOne(d => d.Team)
                     .WithMany(p => p.TeamStatistics)
                     .HasForeignKey(d => d.TeamId)
-                    .HasConstraintName("FK__TeamStati__teamI__7D0E9093");
+                    .HasConstraintName("FK__TeamStati__teamI__12FDD1B2");
             });
 
             modelBuilder.Entity<Teams>(entity =>
             {
                 entity.HasKey(e => e.TeamId)
-                    .HasName("PK__Teams__5ED7534A85B43DDB");
+                    .HasName("PK__Teams__5ED7534AA32EE9EB");
 
                 entity.Property(e => e.TeamId).HasColumnName("teamID");
 

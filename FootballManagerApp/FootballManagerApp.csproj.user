@@ -10,6 +10,9 @@
     <Compile Update="AddPlayer.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="AddTeam.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="EditPlayer.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -19,12 +22,15 @@
     <Compile Update="PlayerOptions.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Teams.xaml.cs">
+    <Compile Update="TeamOptions.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="AddPlayer.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AddTeam.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="EditPlayer.xaml">
@@ -39,7 +45,7 @@
     <Page Update="PlayerOptions.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Teams.xaml">
+    <Page Update="TeamOptions.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

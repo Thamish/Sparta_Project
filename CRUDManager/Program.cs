@@ -70,7 +70,7 @@ namespace CRUDManager
         {
             SelectedPlayer = (Players)selectedItem;
         }
-        public void Submit(string firstName, string lastName, string nationality, string dob,
+        public void SubmitPlayer(string firstName, string lastName, string nationality, string dob,
             List<Teams> selectedTeams, Positions pos)
         {
             using var db = new FootballContext();
@@ -93,6 +93,20 @@ namespace CRUDManager
                 };
                 db.PlayerTeams.Add(newEntry);
             };
+            db.SaveChanges();
+        }
+
+        public void SavePlayer(string firstName, string lastName, string nationality, string dob,
+            Positions pos, Players selectedPlayer)
+        {
+            using var db = new FootballContext();
+            var findPlayer =
+                db.Players.Where(o => o.PlayerId == selectedPlayer.PlayerId).First();
+            findPlayer.FirstName = firstName;
+            findPlayer.LastName = lastName;
+            findPlayer.Nationality = nationality;
+            findPlayer.DateOfBirth = DateTime.Parse(dob);
+            findPlayer.PositionId = pos.PositionId;
             db.SaveChanges();
         }
 }
