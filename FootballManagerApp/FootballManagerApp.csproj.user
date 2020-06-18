@@ -28,6 +28,9 @@
     <Compile Update="RemovePlayer.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="RemoveTeam.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="TeamOptions.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -55,6 +58,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="RemovePlayer.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="RemoveTeam.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="TeamOptions.xaml">

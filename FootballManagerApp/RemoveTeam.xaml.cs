@@ -14,31 +14,31 @@ using System.Windows.Shapes;
 namespace FootballManagerApp
 {
     /// <summary>
-    /// Interaction logic for RemovePlayer.xaml
+    /// Interaction logic for RemoveTeam.xaml
     /// </summary>
-    public partial class RemovePlayer : Page
+    public partial class RemoveTeam : Page
     {
-        public RemovePlayer()
+        public RemoveTeam()
         {
             InitializeComponent();
-            PlayersListBox.ItemsSource = CRUDManager.Program.RetrievePlayers(); 
+            TeamsListBox.ItemsSource = CRUDManager.Program.RetrieveTeams();
         }
         private void Home_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new MainPage());
         }
 
-        private void RemovePlayerButton_Click(object sender, RoutedEventArgs e)
+        private void RemoveTeamsButton_Click(object sender, RoutedEventArgs e)
         {
-            if (PlayersListBox.SelectedItem != null)
+            if (TeamsListBox.SelectedItem != null)
             {
                 MessageBoxResult result = MessageBox.Show("Are You Sure?", "Confirmation", MessageBoxButton.YesNo);
                 switch (result)
                 {
                     case MessageBoxResult.Yes:
-                        CRUDManager.Program.RemovePlayer((EF.Players)PlayersListBox.SelectedItem);
-                        MessageBox.Show("Player Removed", "Confirmation");
-                        this.NavigationService.Navigate(new PlayerOptions());
+                        CRUDManager.Program.RemoveTeam((EF.Teams)TeamsListBox.SelectedItem);
+                        MessageBox.Show("Team Removed", "Confirmation");
+                        this.NavigationService.Navigate(new TeamOptions());
                         break;
                     case MessageBoxResult.No:
                         break;

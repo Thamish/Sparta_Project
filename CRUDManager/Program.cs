@@ -154,5 +154,17 @@ namespace CRUDManager
             db.Players.Remove(selectedPlayer);
             db.SaveChanges();
         }
+        public static void RemoveTeam(Teams selectedTeam)
+        {
+            using var db = new FootballContext();
+            var getPlayerTeams =
+                db.PlayerTeams.Where(o => o.TeamId == selectedTeam.TeamId);
+            foreach (var playerteam in getPlayerTeams)
+            {
+                db.PlayerTeams.Remove(playerteam);
+            }
+            db.Teams.Remove(selectedTeam);
+            db.SaveChanges();
+        }
     }
 }

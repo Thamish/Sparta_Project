@@ -1,0 +1,20 @@
+﻿<Page x:Class="FootballManagerApp.RemoveTeam"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FootballManagerApp"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="RemoveTeam">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Background.jpg"/>
+        </Grid.Background>
+        <Button x:Name="Home" Content="Home" HorizontalAlignment="Left" Height="47" Margin="10,10,0,0" VerticalAlignment="Top" Width="66" FontSize="16" Click="Home_Click" />
+        <TextBox x:Name="TitleText" BorderThickness="0" HorizontalAlignment="Center" Margin="0,10,0,0" Text="Remove Team" TextWrapping="Wrap" VerticalAlignment="Top" Width="392" Height="61" IsReadOnly="True" Background="{x:Null}" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="36" FontFamily="Roland" BorderBrush="{x:Null}" SelectionBrush="{x:Null}"/>
+        <ListBox x:Name="TeamsListBox" Margin="43,143,431,65"/>
+        <Button x:Name="RemoveTeamsButton" Content="Remove" HorizontalAlignment="Left" Margin="533,482,0,0" VerticalAlignment="Top" Height="53" Width="86" FontSize="16" Click="RemoveTeamsButton_Click"/>
+    </Grid>
+</Page>

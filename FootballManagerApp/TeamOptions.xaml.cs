@@ -34,5 +34,10 @@ namespace FootballManagerApp
         {
             this.NavigationService.Navigate(new EditTeam());
         }
+
+        private void RemoveTeamButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new RemoveTeam());
+        }
     }
 }
