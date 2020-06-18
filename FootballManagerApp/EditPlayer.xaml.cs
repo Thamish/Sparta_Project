@@ -1,4 +1,5 @@
 ﻿using CRUDManager;
+using EF;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -20,12 +21,13 @@ namespace FootballManagerApp
     public partial class EditPlayer : Page
     {
         private Program _crudManager = new Program();
+        private List<Teams> _all_teams = CRUDManager.Program.RetrieveTeams();
         public EditPlayer()
         {
             InitializeComponent();
             PlayersListBox.ItemsSource = CRUDManager.Program.RetrievePlayers();
             PositionBox.ItemsSource = CRUDManager.Program.RetrievePositions();
-            Teamsbox.ItemsSource = CRUDManager.Program.RetrieveTeams();
+            Teamsbox.ItemsSource = _all_teams;
             
         }
         private void Home_Click(object sender, RoutedEventArgs e)
@@ -47,7 +49,7 @@ namespace FootballManagerApp
         }
         private void GetDOBText(object sender, RoutedEventArgs e)
         {
-            DOBText.Text = _crudManager.SelectedPlayer.DateOfBirth.ToString().Remove(_crudManager.SelectedPlayer.DateOfBirth.ToString().Length -8);
+            DOBSelected.SelectedDate = _crudManager.SelectedPlayer.DateOfBirth;
         }
         private void GetPosition(object sender, RoutedEventArgs e)
         {
@@ -57,6 +59,7 @@ namespace FootballManagerApp
         {
             if (PlayersListBox.SelectedItem != null)
             {
+                _all_teams = CRUDManager.Program.RetrieveTeams();
                 _crudManager.SetSelectedPlayer(PlayersListBox.SelectedItem);
                 GetFirstNameText(sender,e);
                 GetLastNameText(sender, e);
@@ -64,6 +67,25 @@ namespace FootballManagerApp
                 GetDOBText(sender, e);
                 GetPosition(sender, e);
                 SelectedTeamsBox.ItemsSource = CRUDManager.Program.GetSelectedTeams(_crudManager.SelectedPlayer);
+                List<Teams> tempLis = new List<Teams>();
+                foreach (Teams team in _all_teams)
+                {
+                    foreach (Teams selcetedTeam in CRUDManager.Program.GetSelectedTeams(_crudManager.SelectedPlayer))
+                    {
+                        if (team.TeamId == selcetedTeam.TeamId)
+                        {
+                            tempLis.Add(team);
+                        }
+                        
+                    }
+                }
+                foreach (var team in tempLis)
+                {
+                    _all_teams.Remove(team);
+                }
+                Teamsbox.ItemsSource = null;
+                Teamsbox.ItemsSource = _all_teams;
+
             }
 
         }
@@ -72,16 +94,11 @@ namespace FootballManagerApp
         {
             if (Teamsbox.SelectedItem != null)
             {
-                if (SelectedTeamsBox.Items.Contains(Teamsbox.SelectedItem)==false)
-                {
-                    _crudManager.AddTeam((EF.Teams)Teamsbox.SelectedItem, _crudManager.SelectedPlayer);
-                    SelectedTeamsBox.ItemsSource = null;
-                    SelectedTeamsBox.ItemsSource = CRUDManager.Program.GetSelectedTeams(_crudManager.SelectedPlayer);
-                }
-                else
-                {
-                    MessageBox.Show("Team Already Selected");
-                }
+                CRUDManager.Program.AddTeam((EF.Teams)Teamsbox.SelectedItem, _crudManager.SelectedPlayer);
+                _all_teams.Remove((EF.Teams)Teamsbox.SelectedItem);
+                SelectedTeamsBox.ItemsSource = null;
+                Teamsbox.ItemsSource = _all_teams;
+                SelectedTeamsBox.ItemsSource = CRUDManager.Program.GetSelectedTeams(_crudManager.SelectedPlayer);
             }
             else
             {
@@ -92,7 +109,7 @@ namespace FootballManagerApp
         {
             if (SelectedTeamsBox.SelectedItem != null)
             {
-                _crudManager.RemoveTeam((EF.Teams)SelectedTeamsBox.SelectedItem, _crudManager.SelectedPlayer);
+                CRUDManager.Program.RemoveTeam((EF.Teams)SelectedTeamsBox.SelectedItem, _crudManager.SelectedPlayer);
                 SelectedTeamsBox.ItemsSource = null;
                 SelectedTeamsBox.ItemsSource = CRUDManager.Program.GetSelectedTeams(_crudManager.SelectedPlayer);
             }
@@ -106,12 +123,13 @@ namespace FootballManagerApp
         {
             if (FirstNameText.Text != "" && FirstNameText.Text != "First Name" &&
                 NationalityText.Text != "" && NationalityText.Text != "Nationality" &&
-                DOBText.Text != "" && DOBText.Text != "YYYY/MM/DD" && PositionBox.SelectedItem != null)
+                DOBSelected.SelectedDate != null && PositionBox.SelectedItem != null)
             {
-                _crudManager.SavePlayer(FirstNameText.Text, LastNameText.Text, NationalityText.Text,
-                DOBText.Text, (EF.Positions)PositionBox.SelectedItem, _crudManager.SelectedPlayer);
+                CRUDManager.Program.SavePlayer(FirstNameText.Text, LastNameText.Text, NationalityText.Text,
+                (DateTime)DOBSelected.SelectedDate, (EF.Positions)PositionBox.SelectedItem, _crudManager.SelectedPlayer);
             }
             MessageBox.Show("Player Saved!");
+            this.NavigationService.GoBack();
             
         }
     }

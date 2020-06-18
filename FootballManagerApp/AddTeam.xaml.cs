@@ -59,7 +59,7 @@ namespace FootballManagerApp
         {
             if (TeamNameText.Text != "" && TeamNameText.Text != "Team Name")
             {
-                _crudManager.SubmitTeam(TeamNameText.Text, _crudManager.SelectedPlayers);
+                CRUDManager.Program.SubmitTeam(TeamNameText.Text, _crudManager.SelectedPlayers);
             }
             MessageBox.Show("Team Added");
             this.NavigationService.Navigate(new TeamOptions());

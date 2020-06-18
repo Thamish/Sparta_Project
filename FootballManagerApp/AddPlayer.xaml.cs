@@ -33,23 +33,43 @@ namespace FootballManagerApp
 
         private void FirstNameText_Click(object sender, RoutedEventArgs e)
         {
-            FirstNameText.Text = "";
-            FirstNameText.Foreground = new SolidColorBrush(Colors.Black);
+            if (FirstNameText.Text == "First Name")
+            {
+                FirstNameText.Text = "";
+                FirstNameText.Foreground = new SolidColorBrush(Colors.Black);
+            }
+            else if (FirstNameText.Text == "")
+            {
+                FirstNameText.Foreground = new SolidColorBrush(Colors.Gray);
+                FirstNameText.Text = "First Name";
+            }
+            
         }
         private void LastNameText_Click(object sender, RoutedEventArgs e)
         {
-            LastNameText.Text = "";
-            LastNameText.Foreground = new SolidColorBrush(Colors.Black);
+            if (LastNameText.Text == "Last Name")
+            {
+                LastNameText.Text = "";
+                LastNameText.Foreground = new SolidColorBrush(Colors.Black);
+            }
+            else if (LastNameText.Text == "")
+            {
+                LastNameText.Foreground = new SolidColorBrush(Colors.Gray);
+                LastNameText.Text = "Last Name";
+            }
         }
         private void NationalityText_Click(object sender, RoutedEventArgs e)
         {
-            NationalityText.Text = "";
-            NationalityText.Foreground = new SolidColorBrush(Colors.Black);
-        }
-        private void DOBText_Click(object sender, RoutedEventArgs e)
-        {
-            DOBText.Text = "";
-            DOBText.Foreground = new SolidColorBrush(Colors.Black);
+            if (NationalityText.Text == "Nationality")
+            {
+                NationalityText.Text = "";
+                NationalityText.Foreground = new SolidColorBrush(Colors.Black);
+            }
+            else if (NationalityText.Text == "")
+            {
+                NationalityText.Foreground = new SolidColorBrush(Colors.Gray);
+                NationalityText.Text = "Nationality";
+            }
         }
 
         private void TeamsBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -106,11 +126,11 @@ namespace FootballManagerApp
         {
             if (FirstNameText.Text != "" && FirstNameText.Text != "First Name" &&
                 NationalityText.Text != "" && NationalityText.Text != "Nationality" &&
-                DOBText.Text != "" && DOBText.Text != "YYYY/MM/DD" &&
-                _crudManager.SelectedTeams.Count > 0 && PositionBox.SelectedItem != null)
+                DOBSelect.SelectedDate != null && _crudManager.SelectedTeams.Count > 0
+                && PositionBox.SelectedItem != null)
             {
-                _crudManager.SubmitPlayer(FirstNameText.Text, LastNameText.Text, NationalityText.Text,
-                    DOBText.Text, _crudManager.SelectedTeams, (EF.Positions)PositionBox.SelectedItem);
+                CRUDManager.Program.SubmitPlayer(FirstNameText.Text, LastNameText.Text, NationalityText.Text,
+                    (DateTime)DOBSelect.SelectedDate, _crudManager.SelectedTeams, (EF.Positions)PositionBox.SelectedItem);
             }
             MessageBox.Show("Player Added!");
             this.NavigationService.Navigate(new PlayerOptions());

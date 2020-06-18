@@ -44,7 +44,7 @@ namespace CRUDManager
             }
             return output;
         }
-        public void AddTeam(Teams team, Players selectedPlayer)
+        public static void AddTeam(Teams team, Players selectedPlayer)
         {
             using var db = new FootballContext();
             PlayerTeams newEntry = new PlayerTeams
@@ -55,7 +55,7 @@ namespace CRUDManager
             db.PlayerTeams.Add(newEntry);
             db.SaveChanges();
         }
-        public void RemoveTeam(Teams team, Players selectedPlayer)
+        public static void RemoveTeam(Teams team, Players selectedPlayer)
         {
             using var db = new FootballContext();
             var entry =
@@ -71,7 +71,7 @@ namespace CRUDManager
         {
             SelectedPlayer = (Players)selectedItem;
         }
-        public void SubmitPlayer(string firstName, string lastName, string nationality, string dob,
+        public static void SubmitPlayer(string firstName, string lastName, string nationality, DateTime dob,
             List<Teams> selectedTeams, Positions pos)
         {
             using var db = new FootballContext();
@@ -80,7 +80,7 @@ namespace CRUDManager
                 FirstName = firstName,
                 LastName = lastName,
                 Nationality = nationality,
-                DateOfBirth = DateTime.Parse(dob),
+                DateOfBirth = dob,
                 PositionId = pos.PositionId
             };
             db.Players.Add(newPlayer);
@@ -97,7 +97,7 @@ namespace CRUDManager
             db.SaveChanges();
         }
 
-        public void SavePlayer(string firstName, string lastName, string nationality, string dob,
+        public static void SavePlayer(string firstName, string lastName, string nationality, DateTime dob,
             Positions pos, Players selectedPlayer)
         {
             using var db = new FootballContext();
@@ -106,12 +106,12 @@ namespace CRUDManager
             findPlayer.FirstName = firstName;
             findPlayer.LastName = lastName;
             findPlayer.Nationality = nationality;
-            findPlayer.DateOfBirth = DateTime.Parse(dob);
+            findPlayer.DateOfBirth = dob;
             findPlayer.PositionId = pos.PositionId;
             db.SaveChanges();
         }
 
-        public void SubmitTeam(string teamName, List<Players> selectedPlayers)
+        public static void SubmitTeam(string teamName, List<Players> selectedPlayers)
         {
             using var db = new FootballContext();
             Teams newTeam = new Teams
