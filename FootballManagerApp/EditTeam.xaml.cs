@@ -14,25 +14,17 @@ using System.Windows.Shapes;
 namespace FootballManagerApp
 {
     /// <summary>
-    /// Interaction logic for TeamOptions.xaml
+    /// Interaction logic for EditTeam.xaml
     /// </summary>
-    public partial class TeamOptions : Page
+    public partial class EditTeam : Page
     {
-        public TeamOptions()
+        public EditTeam()
         {
             InitializeComponent();
         }
         private void Home_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new MainPage());
-        }
-        private void AddTeamButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new AddTeam());
-        }
-        private void EditTeamButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new EditTeam());
         }
     }
 }

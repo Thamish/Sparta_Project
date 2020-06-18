@@ -34,5 +34,9 @@ namespace FootballManagerApp
         {
             this.NavigationService.Navigate(new EditPlayer());
         }
+        private void RemovePlayerButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new RemovePlayer());
+        }
     }
 }

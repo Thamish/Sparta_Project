@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Linq;
 using EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query.Internal;
@@ -11,8 +12,8 @@ namespace CRUDManager
     {
         public Teams SelectedTeam { get; set; }
         public Players SelectedPlayer { get; set; }
-        
         public List<Teams> SelectedTeams = new List<Teams>();
+        public List<Players> SelectedPlayers = new List<Players>();
         static void Main(string[] args)
         {
         }
@@ -109,5 +110,36 @@ namespace CRUDManager
             findPlayer.PositionId = pos.PositionId;
             db.SaveChanges();
         }
-}
+
+        public void SubmitTeam(string teamName, List<Players> selectedPlayers)
+        {
+            using var db = new FootballContext();
+            Teams newTeam = new Teams
+            {
+                TeamName = teamName
+            };
+            db.Teams.Add(newTeam);
+            db.SaveChanges();
+            foreach (var selectedplayer in selectedPlayers)
+            {
+                PlayerTeams newEntry = new PlayerTeams
+                {
+                    TeamId = newTeam.TeamId,
+                    PlayerId = selectedplayer.PlayerId
+                };
+                db.PlayerTeams.Add(newEntry);
+            }
+            TeamStatistics newStatistics = new TeamStatistics
+            {
+                TeamId = newTeam.TeamId,
+                MatchesPlayed = 0,
+                Wins = 0,
+                Draws = 0,
+                Losses = 0,
+                GoalsScored = 0,
+                GoalsConceded = 0
+            };
+            db.SaveChanges();
+        }
+    }
 }
