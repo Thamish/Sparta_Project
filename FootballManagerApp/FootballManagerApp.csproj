@@ -9,8 +9,6 @@
   <ItemGroup>
     <None Remove="Background.jpg" />
     <None Remove="football.png" />
-    <None Remove="IMG.JPG" />
-    <None Remove="Title.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,8 +29,6 @@
   <ItemGroup>
     <Resource Include="Background.jpg" />
     <Resource Include="football.png" />
-    <Resource Include="IMG.JPG" />
-    <Resource Include="Title.jpg" />
   </ItemGroup>
 
 </Project>

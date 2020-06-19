@@ -39,12 +39,14 @@ namespace FootballManagerApp
                 FirstNameText.Text = "";
                 FirstNameText.Foreground = new SolidColorBrush(Colors.Black);
             }
-            else if (FirstNameText.Text == "")
+        }
+        private void FirstNameLostFocus(object sender, RoutedEventArgs e)
+        {
+            if (FirstNameText.Text == "")
             {
                 FirstNameText.Foreground = new SolidColorBrush(Colors.Gray);
                 FirstNameText.Text = "First Name";
             }
-            
         }
         private void LastNameText_Click(object sender, RoutedEventArgs e)
         {
@@ -53,7 +55,10 @@ namespace FootballManagerApp
                 LastNameText.Text = "";
                 LastNameText.Foreground = new SolidColorBrush(Colors.Black);
             }
-            else if (LastNameText.Text == "")
+        }
+        private void LastNameLostFocus(object sender, RoutedEventArgs e)
+        {
+            if (LastNameText.Text == "")
             {
                 LastNameText.Foreground = new SolidColorBrush(Colors.Gray);
                 LastNameText.Text = "Last Name";
@@ -66,7 +71,10 @@ namespace FootballManagerApp
                 NationalityText.Text = "";
                 NationalityText.Foreground = new SolidColorBrush(Colors.Black);
             }
-            else if (NationalityText.Text == "")
+        }
+        private void NationalityLostFocus(object sender, RoutedEventArgs e)
+        {
+            if (NationalityText.Text == "")
             {
                 NationalityText.Foreground = new SolidColorBrush(Colors.Gray);
                 NationalityText.Text = "Nationality";

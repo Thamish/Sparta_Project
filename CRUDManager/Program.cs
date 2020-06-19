@@ -46,25 +46,6 @@ namespace CRUDManager
             }
             return output;
         }
-        public static void AddTeam(Teams team, Players selectedPlayer)
-        {
-            using var db = new FootballContext();
-            PlayerTeams newEntry = new PlayerTeams
-            {
-                PlayerId = selectedPlayer.PlayerId,
-                TeamId = team.TeamId
-            };
-            db.PlayerTeams.Add(newEntry);
-            db.SaveChanges();
-        }
-        public static void RemoveTeam(Teams team, Players selectedPlayer)
-        {
-            using var db = new FootballContext();
-            var entry =
-                db.PlayerTeams.Where(o => o.PlayerId == selectedPlayer.PlayerId && o.TeamId == team.TeamId).First();
-            db.PlayerTeams.Remove(entry);
-            db.SaveChanges();
-        }
         public void SetSelectedTeam(object selectedItem)
         {
             SelectedTeam = (Teams)selectedItem;
@@ -100,7 +81,7 @@ namespace CRUDManager
         }
 
         public static void SavePlayer(string firstName, string lastName, string nationality, DateTime dob,
-            Positions pos, Players selectedPlayer)
+            Positions pos, Players selectedPlayer,List<Teams> teams)
         {
             using var db = new FootballContext();
             var findPlayer =
@@ -110,6 +91,21 @@ namespace CRUDManager
             findPlayer.Nationality = nationality;
             findPlayer.DateOfBirth = dob;
             findPlayer.PositionId = pos.PositionId;
+            var removeEntries =
+                db.PlayerTeams.Where(o => o.PlayerId == selectedPlayer.PlayerId);
+            foreach (var rEntry in removeEntries)
+            {
+                db.PlayerTeams.Remove(rEntry);
+            }
+            foreach (var team in teams)
+            {
+                PlayerTeams newEntry = new PlayerTeams
+                {
+                    PlayerId = selectedPlayer.PlayerId,
+                    TeamId = team.TeamId
+                };
+                db.PlayerTeams.Add(newEntry);
+            }
             db.SaveChanges();
         }
 
