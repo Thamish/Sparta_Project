@@ -32,3 +32,28 @@ Competed all the items in the backlog for this sprint
 ![](/FootballManagerApp/Images/boardStart.PNG)
 
 **Project Board At End**
+
+## Sprint 2
+
+**Sprint Goal**
+
+My sprint goal was to add CRUD functionality to my game
+
+**Output Of Sprint Review**
+
+Competed all the items in the backlog for this sprint 
+
+**Sprint Retrospective**
+
+<ins>Went Well</ins> : Competed all the items in the backlog for this sprint
+
+<ins>Next Sprint</ins> : I hope to add a filter function to search for players
+
+**Overall Project Retrospective**
+
+**Project Board At Start**
+
+![](/FootballManagerApp/Images/boardStart.PNG)
+
+**Project Board At End**
+
