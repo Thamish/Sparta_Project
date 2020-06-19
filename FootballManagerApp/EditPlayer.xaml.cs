@@ -25,6 +25,13 @@ namespace FootballManagerApp
         public EditPlayer()
         {
             InitializeComponent();
+            List<Positions> positionslist = new List<Positions>();
+            positionslist.Add(new Positions { PositionId = 6, PositionDescription = "All" });
+            foreach (var position in CRUDManager.Program.RetrievePositions())
+            {
+                positionslist.Add(position);
+            }
+            Positionfilter.ItemsSource = positionslist;
             PlayersListBox.ItemsSource = CRUDManager.Program.RetrievePlayers();
             PositionBox.ItemsSource = CRUDManager.Program.RetrievePositions();
             Teamsbox.ItemsSource = _all_teams;
@@ -131,6 +138,22 @@ namespace FootballManagerApp
             MessageBox.Show("Player Saved!");
             this.NavigationService.GoBack();
             
+        }
+        private void FilterTeam_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Teamsbox.ItemsSource = null;
+            Teamsbox.ItemsSource = CRUDManager.Program.FilterTeams(FilterTeam.Text);
+        }
+        private void FirstNameFilter_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            PlayersListBox.ItemsSource = null;
+            PlayersListBox.ItemsSource = CRUDManager.Program.FilterPlayers(FirstNamefilter.Text, (Positions)Positionfilter.SelectedItem);
+        }
+
+        private void Positionfilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            PlayersListBox.ItemsSource = null;
+            PlayersListBox.ItemsSource = CRUDManager.Program.FilterPlayers(FirstNamefilter.Text, (Positions)Positionfilter.SelectedItem);
         }
     }
 }

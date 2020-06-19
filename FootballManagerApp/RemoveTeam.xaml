@@ -15,6 +15,8 @@
         <Button x:Name="Home" Content="Home" HorizontalAlignment="Left" Height="47" Margin="10,10,0,0" VerticalAlignment="Top" Width="66" FontSize="16" Click="Home_Click" />
         <TextBox x:Name="TitleText" BorderThickness="0" HorizontalAlignment="Center" Margin="0,10,0,0" Text="Remove Team" TextWrapping="Wrap" VerticalAlignment="Top" Width="392" Height="61" IsReadOnly="True" Background="{x:Null}" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="36" FontFamily="Roland" BorderBrush="{x:Null}" SelectionBrush="{x:Null}"/>
         <ListBox x:Name="TeamsListBox" Margin="43,143,431,65"/>
-        <Button x:Name="RemoveTeamsButton" Content="Remove" HorizontalAlignment="Left" Margin="533,482,0,0" VerticalAlignment="Top" Height="53" Width="86" FontSize="16" Click="RemoveTeamsButton_Click"/>
+        <Button x:Name="RemoveTeamsButton" Content="Remove" HorizontalAlignment="Left" Margin="510,373,0,0" VerticalAlignment="Top" Height="53" Width="86" FontSize="16" Click="RemoveTeamsButton_Click"/>
+        <TextBox x:Name="FilterTeam" HorizontalAlignment="Left" Margin="439,288,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="234" TextChanged="FilterTeam_TextChanged" Height="34" FontSize="18" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="FilterTitle" BorderThickness="0" HorizontalAlignment="Left" Margin="439,211,0,0" IsReadOnly="True" Text="Filter by Team Name :" TextWrapping="Wrap" VerticalAlignment="Top" Width="234" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Calisto MT" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Height="72" FontSize="22" />
     </Grid>
 </Page>

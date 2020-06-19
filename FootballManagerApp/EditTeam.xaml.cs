@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using EF;
 
 namespace FootballManagerApp
 {
@@ -22,10 +23,30 @@ namespace FootballManagerApp
         public EditTeam()
         {
             InitializeComponent();
+            List<Positions> positionslist = new List<Positions>();
+            positionslist.Add(new Positions { PositionId = 6, PositionDescription = "All" });
+            foreach (var position in CRUDManager.Program.RetrievePositions())
+            {
+                positionslist.Add(position);
+            }
+            Positionfilter.ItemsSource = positionslist;
+            PlayersListBox.ItemsSource = CRUDManager.Program.RetrievePlayers();
         }
         private void Home_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new MainPage());
         }
+        private void FirstNameFilter_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            PlayersListBox.ItemsSource = null;
+            PlayersListBox.ItemsSource = CRUDManager.Program.FilterPlayers(FirstNamefilter.Text, (Positions)Positionfilter.SelectedItem);
+        }
+
+        private void Positionfilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            PlayersListBox.ItemsSource = null;
+            PlayersListBox.ItemsSource = CRUDManager.Program.FilterPlayers(FirstNamefilter.Text, (Positions)Positionfilter.SelectedItem);
+        }
     }
+    
 }

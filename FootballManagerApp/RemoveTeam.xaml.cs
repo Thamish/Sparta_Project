@@ -45,5 +45,10 @@ namespace FootballManagerApp
                 }
             }
         }
+        private void FilterTeam_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TeamsListBox.ItemsSource = null;
+            TeamsListBox.ItemsSource = CRUDManager.Program.FilterTeams(FilterTeam.Text);
+        }
     }
 }

@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CRUDManager;
+using EF;
 
 namespace FootballManagerApp
 {
@@ -134,6 +135,12 @@ namespace FootballManagerApp
             }
             MessageBox.Show("Player Added!");
             this.NavigationService.Navigate(new PlayerOptions());
+        }
+
+        private void FilterTeam_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TeamsBox.ItemsSource = null;
+            TeamsBox.ItemsSource = CRUDManager.Program.FilterTeams(FilterTeam.Text);
         }
     }
 }

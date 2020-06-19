@@ -74,7 +74,7 @@ namespace FootballManagerApp
             this.NavigationService.Navigate(new TeamOptions());
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void FirstNameFilter_TextChanged(object sender, TextChangedEventArgs e)
         {
             PlayersListBox.ItemsSource = null;
             PlayersListBox.ItemsSource = CRUDManager.Program.FilterPlayers(FirstNamefilter.Text, (Positions)Positionfilter.SelectedItem);
