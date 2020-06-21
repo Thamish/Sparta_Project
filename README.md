@@ -69,7 +69,7 @@ Competed all the items in the backlog for this sprint
 
 - Commit All Code
 
-<strong>Next Sprint</strong> : I hope to add a filter function to search for players
+<strong>Next Sprint</strong> : I hope to add a filter function to search for all of the listboxes
 
 ## Sprint 3
 
@@ -103,7 +103,7 @@ Competed all the items in the backlog for this sprint
 
 - Commit All Code
 
-<strong>Next Sprint</strong> : I hope to add a Unit Tests
+<strong>Next Sprint</strong> : I hope to add Unit Tests
 
 ## Sprint 4
 
@@ -138,6 +138,7 @@ Competed all the items in the backlog for this sprint
 - Commit All Code
 
 <strong>Next Sprint</strong> : I hope to add a game simulation function
+
 ## Sprint 5
 
 **Sprint Goal**
