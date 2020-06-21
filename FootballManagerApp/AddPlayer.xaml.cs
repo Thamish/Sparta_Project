@@ -21,6 +21,7 @@ namespace FootballManagerApp
     public partial class AddPlayer : Page
     {
         private Program _crudManager = new Program();
+
         public AddPlayer()
         {
             InitializeComponent();
@@ -102,9 +103,16 @@ namespace FootballManagerApp
             {
                 if (_crudManager.SelectedTeams.Contains(_crudManager.SelectedTeam) == false)
                 {
-                    _crudManager.SelectedTeams.Add(_crudManager.SelectedTeam);
-                    SelectedTeamsBox.ItemsSource = null;
-                    SelectedTeamsBox.ItemsSource = _crudManager.SelectedTeams;
+                    if (CRUDManager.Program.GetTeamSize(_crudManager.SelectedTeam) < 11)
+                    {
+                        _crudManager.SelectedTeams.Add(_crudManager.SelectedTeam);
+                        SelectedTeamsBox.ItemsSource = null;
+                        SelectedTeamsBox.ItemsSource = _crudManager.SelectedTeams;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Team Full");
+                    }
                 }
                 else
                 {
@@ -133,16 +141,42 @@ namespace FootballManagerApp
 
         private void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
-            if (FirstNameText.Text != "" && FirstNameText.Text != "First Name" &&
-                NationalityText.Text != "" && NationalityText.Text != "Nationality" &&
-                DOBSelect.SelectedDate != null && _crudManager.SelectedTeams.Count > 0
-                && PositionBox.SelectedItem != null)
+            if (LastNameText.Text == "Last Name")
             {
-                CRUDManager.Program.SubmitPlayer(FirstNameText.Text, LastNameText.Text, NationalityText.Text,
-                    (DateTime)DOBSelect.SelectedDate, _crudManager.SelectedTeams, (EF.Positions)PositionBox.SelectedItem);
+                LastNameText.Text = "";
             }
-            MessageBox.Show("Player Added!");
-            this.NavigationService.Navigate(new PlayerOptions());
+            if (FirstNameText.Text != "" && FirstNameText.Text != "First Name")
+            {
+                if (NationalityText.Text != "" && NationalityText.Text != "Nationality")
+                {
+                    if (DOBSelect.SelectedDate != null)
+                    {
+                        if (PositionBox.SelectedItem != null)
+                        {
+                            CRUDManager.Program.SubmitPlayer(FirstNameText.Text, LastNameText.Text, NationalityText.Text,
+                            (DateTime)DOBSelect.SelectedDate, _crudManager.SelectedTeams, (EF.Positions)PositionBox.SelectedItem);
+                            MessageBox.Show("Player Added!");
+                            this.NavigationService.Navigate(new PlayerOptions());
+                        }
+                        else
+                        {
+                            MessageBox.Show("Player Not Added" + "\n" + "Position Not Selected!");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Player Not Added" + "\n" + "Date of Birth Not Selected!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Player Not Added" + "\n" + "Nationality Missing!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Player Not Added" + "\n" + "First Name Missing!");
+            }
         }
 
         private void FilterTeam_TextChanged(object sender, TextChangedEventArgs e)

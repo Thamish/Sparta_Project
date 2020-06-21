@@ -43,9 +43,24 @@ namespace FootballManagerApp
         {
             if (PlayersListBox.SelectedItem != null)
             {
-                _crudManager.SelectedPlayers.Add((EF.Players)PlayersListBox.SelectedItem);
-                SelectedPlayersListBox.ItemsSource = null;
-                SelectedPlayersListBox.ItemsSource = _crudManager.SelectedPlayers;
+                if (_crudManager.SelectedPlayers.Contains((EF.Players)PlayersListBox.SelectedItem) == false)
+                {
+                    if (SelectedPlayersListBox.Items.Count < 11)
+                    {
+                        _crudManager.SelectedPlayers.Add((EF.Players)PlayersListBox.SelectedItem);
+                        SelectedPlayersListBox.ItemsSource = null;
+                        SelectedPlayersListBox.ItemsSource = _crudManager.SelectedPlayers;
+                        PlayersListBox.SelectedItem = null;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Team Full");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Player Already Added");
+                }
             }
         }
 

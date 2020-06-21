@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Xml.Linq;
 using EF;
@@ -16,9 +17,11 @@ namespace CRUDManager
         public Players SelectedPlayer { get; set; }
         public List<Teams> SelectedTeams = new List<Teams>();
         public List<Players> SelectedPlayers = new List<Players>();
+        
         static void Main(string[] args)
         {
         }
+
         public static List<Teams> RetrieveTeams()
         {
             using var db = new FootballContext();
@@ -46,6 +49,38 @@ namespace CRUDManager
             }
             return output;
         }
+        public static List<PlayerTeams> GetSelectedPlayers(Teams selectedTeam)
+        {
+            using var db = new FootballContext();
+            var Playersquary =
+                db.PlayerTeams.Where(o => o.TeamId == selectedTeam.TeamId).Include(o=>o.Player).ToList();
+            return Playersquary;
+        }
+
+        public static Players GetPlayer(PlayerTeams player)
+        {
+            using var db = new FootballContext();
+            var playerQuery =
+                db.Players.Where(o => o.PlayerId == player.PlayerId).FirstOrDefault();
+            return playerQuery;
+        }
+
+        public static int GetTeamSize(Teams team)
+        {
+            using var db = new FootballContext();
+            var Numplayers =
+                db.PlayerTeams.Where(o => o.TeamId == team.TeamId).Count();
+            return Numplayers;
+        }
+
+        public static TeamStatistics GetTeamStatistics(Teams team)
+        {
+            using var db = new FootballContext();
+            var stats =
+                db.TeamStatistics.Where(o => o.TeamId == team.TeamId).FirstOrDefault();
+            return stats;
+        }
+
         public void SetSelectedTeam(object selectedItem)
         {
             SelectedTeam = (Teams)selectedItem;
@@ -68,6 +103,7 @@ namespace CRUDManager
             };
             db.Players.Add(newPlayer);
             db.SaveChanges();
+
             foreach (var team in selectedTeams)
             {
                 PlayerTeams newEntry = new PlayerTeams
@@ -75,10 +111,11 @@ namespace CRUDManager
                     PlayerId = newPlayer.PlayerId,
                     TeamId = team.TeamId
                 };
-                db.PlayerTeams.Add(newEntry);
-            };
+                db.PlayerTeams.Add(newEntry);                
+            }
             db.SaveChanges();
         }
+        
 
         public static void SavePlayer(string firstName, string lastName, string nationality, DateTime dob,
             Positions pos, Players selectedPlayer,List<Teams> teams)
@@ -102,6 +139,39 @@ namespace CRUDManager
                 PlayerTeams newEntry = new PlayerTeams
                 {
                     PlayerId = selectedPlayer.PlayerId,
+                    TeamId = team.TeamId
+                };
+                db.PlayerTeams.Add(newEntry);
+            }
+            db.SaveChanges();
+        }
+
+        public static void SaveTeam(Teams team, string teamName, int matchesPlayed, int wins, int draws, int losses, int goalsScored,
+            int goalsConceded, List<Players> players)
+        {
+            using var db = new FootballContext();
+            var findTeam =
+                db.Teams.Where(o => o.TeamId == team.TeamId).FirstOrDefault();
+            var findstats =
+                db.TeamStatistics.Where(o => o.TeamId == team.TeamId).FirstOrDefault();
+            findTeam.TeamName = teamName;
+            findstats.MatchesPlayed = matchesPlayed;
+            findstats.Wins = wins;
+            findstats.Draws = draws;
+            findstats.Losses = losses;
+            findstats.GoalsScored = goalsScored;
+            findstats.GoalsConceded = goalsConceded;
+            var removeEntries =
+                db.PlayerTeams.Where(o => o.TeamId == team.TeamId);
+            foreach (var rEntry in removeEntries)
+            {
+                db.PlayerTeams.Remove(rEntry);
+            }
+            foreach (var player in players)
+            {
+                PlayerTeams newEntry = new PlayerTeams
+                {
+                    PlayerId = player.PlayerId,
                     TeamId = team.TeamId
                 };
                 db.PlayerTeams.Add(newEntry);
@@ -137,6 +207,7 @@ namespace CRUDManager
                 GoalsScored = 0,
                 GoalsConceded = 0
             };
+            db.TeamStatistics.Add(newStatistics);
             db.SaveChanges();
         }
 
@@ -161,9 +232,13 @@ namespace CRUDManager
             {
                 db.PlayerTeams.Remove(playerteam);
             }
+            var getTeamstats =
+                db.TeamStatistics.Where(o => o.TeamId == selectedTeam.TeamId).FirstOrDefault();
+            db.TeamStatistics.Remove(getTeamstats);
             db.Teams.Remove(selectedTeam);
             db.SaveChanges();
         }
+        
 
         public static List<Players> FilterPlayers(string filter, Positions pos)
         {

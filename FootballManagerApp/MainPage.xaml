@@ -12,9 +12,10 @@
         <Grid.Background>
             <ImageBrush ImageSource="/Background.jpg"/>
         </Grid.Background>
-        <Button x:Name="PlayersButton" Content="Players" HorizontalAlignment="Center" Height="84" VerticalAlignment="Center" Width="240" FontSize="36" FontFamily="Rockwell" Click="PlayersButton_Click"/>
+        <Button x:Name="PlayersButton" Content="Players" HorizontalAlignment="Center" Height="84" VerticalAlignment="Top" Width="240" FontSize="36" FontFamily="Rockwell" Click="PlayersButton_Click" Margin="0,300,0,0"/>
         <Button x:Name="TeamsButton" Content="Teams" HorizontalAlignment="Center" Height="84" Margin="0,402,0,0" VerticalAlignment="Top" Width="240" FontSize="36" FontFamily="Rockwell" Click="TeamsButton_Click"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,25,0,0" Text="FOOTBALL MANAGER" TextWrapping="Wrap" VerticalAlignment="Top" Height="99" Width="560" FontFamily="Impact" Foreground="White" FontSize="72"/>
+        <Button x:Name="Game" Content="Play" HorizontalAlignment="Center" Height="84" VerticalAlignment="Top" Width="240" FontSize="36" FontFamily="Rockwell"  Margin="0,193,0,0" Click="Game_Click"/>
 
     </Grid>
 </Page>

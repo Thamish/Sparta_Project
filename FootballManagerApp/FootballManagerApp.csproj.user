@@ -19,6 +19,9 @@
     <Compile Update="EditTeam.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Game.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="MainPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -46,6 +49,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="EditTeam.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Game.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainPage.xaml">

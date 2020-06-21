@@ -132,17 +132,39 @@ namespace FootballManagerApp
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            if (FirstNameText.Text != "" && FirstNameText.Text != "First Name" &&
-                NationalityText.Text != "" && NationalityText.Text != "Nationality" &&
-                DOBSelected.SelectedDate != null && PositionBox.SelectedItem != null)
+            if (FirstNameText.Text != "" && FirstNameText.Text != "First Name")
             {
-                CRUDManager.Program.SavePlayer(FirstNameText.Text, LastNameText.Text, NationalityText.Text,
-                (DateTime)DOBSelected.SelectedDate, (EF.Positions)PositionBox.SelectedItem, _crudManager.SelectedPlayer
-                ,_crudManager.SelectedTeams);
+                if (NationalityText.Text != "" && NationalityText.Text != "Nationality")
+                {
+                    if (DOBSelected.SelectedDate != null)
+                    {
+                        if (PositionBox.SelectedItem != null)
+                        {
+                            CRUDManager.Program.SavePlayer(FirstNameText.Text, LastNameText.Text, NationalityText.Text,
+                                (DateTime)DOBSelected.SelectedDate, (EF.Positions)PositionBox.SelectedItem, _crudManager.SelectedPlayer
+                                , _crudManager.SelectedTeams);
+                            MessageBox.Show("Player Saved!");
+                            this.NavigationService.GoBack();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Player Not Added" + "\n" + "Position Not Selected!");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Player Not Added" + "\n" + "Date of Birth Not Selected!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Player Not Added" + "\n" + "Nationality Missing!");
+                }
             }
-            MessageBox.Show("Player Saved!");
-            this.NavigationService.GoBack();
-            
+            else
+            {
+                MessageBox.Show("Player Not Added" + "\n" + "First Name Missing!");
+            }
         }
         private void FilterTeam_TextChanged(object sender, TextChangedEventArgs e)
         {

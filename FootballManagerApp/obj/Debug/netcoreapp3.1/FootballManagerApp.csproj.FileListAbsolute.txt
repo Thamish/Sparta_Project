@@ -72,3 +72,5 @@ C:\Users\thami\source\repos\Thamish\Sparta_Project\FootballManagerApp\obj\Debug\
 C:\Users\thami\source\repos\Thamish\Sparta_Project\FootballManagerApp\obj\Debug\netcoreapp3.1\RemovePlayer.baml
 C:\Users\thami\source\repos\Thamish\Sparta_Project\FootballManagerApp\obj\Debug\netcoreapp3.1\RemoveTeam.g.cs
 C:\Users\thami\source\repos\Thamish\Sparta_Project\FootballManagerApp\obj\Debug\netcoreapp3.1\RemoveTeam.baml
+C:\Users\thami\source\repos\Thamish\Sparta_Project\FootballManagerApp\obj\Debug\netcoreapp3.1\Game.g.cs
+C:\Users\thami\source\repos\Thamish\Sparta_Project\FootballManagerApp\obj\Debug\netcoreapp3.1\Game.baml

@@ -32,5 +32,10 @@ namespace FootballManagerApp
         {
             this.NavigationService.Navigate(new TeamOptions());
         }
+
+        private void Game_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Game());
+        }
     }
 }
