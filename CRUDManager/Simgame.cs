@@ -70,7 +70,7 @@ namespace CRUDManager
             if (chance < 3)
             {
                 result += "GOAL!" + "\n";
-                result += $"{shooter} ({team.TeamName}) {foot} footed shot from {location} and he smashes it " +
+                result += $"{shooter} ({team.TeamName}) {foot} footed shot from {location} and He smashes it " +
                     $"into the back of the net!" + "\n";
                 goal = true;
             }
@@ -85,6 +85,11 @@ namespace CRUDManager
             {
                 result += $"{shooter} ({team.TeamName}) shoots from far out " + "\n";
                 result += "What a horrible shot!" + "\n";
+            }
+            else if (chance < 7)
+            {
+                result += $"{shooter} ({team.TeamName}) {foot} footed shot from {location} and a great save" + "\n";
+                result += "What a Save!" + "\n";
             }
             else
             {

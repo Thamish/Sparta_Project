@@ -85,7 +85,7 @@ namespace FootballManagerApp {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/FootballManagerApp;V1.0.0.0;component/playeroptions.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/FootballManagerApp;component/playeroptions.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\PlayerOptions.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -12,19 +12,19 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="CRUDManager.Program">
-    <Position X="14.25" Y="1" Width="2.25" />
+    <Position X="14.25" Y="0.75" Width="2.25" />
     <TypeIdentifier />
     <ShowAsAssociation>
-      <Property Name="SelectedPlayer" />
       <Property Name="SelectedTeam" />
+      <Property Name="SelectedPlayer" />
     </ShowAsAssociation>
   </Class>
   <Class Name="EF.Players">
-    <Position X="18.5" Y="3.25" Width="2.25" />
+    <Position X="20.75" Y="6.25" Width="2.25" />
     <TypeIdentifier />
   </Class>
   <Class Name="EF.Teams">
-    <Position X="18.75" Y="0.5" Width="2" />
+    <Position X="20.75" Y="1.5" Width="2" />
     <TypeIdentifier />
   </Class>
   <Class Name="FootballManagerApp.AddTeam">
@@ -96,6 +96,36 @@
       <FileName>TeamOptions.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FootballManagerApp.EditTeam">
+    <Position X="5.75" Y="8.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>BABCAAAAAAABAAgAABAIEEAAAAAAASAAAAAAEAgAAAg=</HashCode>
+      <FileName>EditTeam.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_crudManager" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FootballManagerApp.Game">
+    <Position X="3.25" Y="9.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AABAAABAAAAAAAAAAAAAgAAAAAAAAAAICAAAAAAAAAg=</HashCode>
+      <FileName>Game.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_crudManager" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CRUDManager.Simgame">
+    <Position X="14" Y="7" Width="2.5" />
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="SelectedTeam1" />
+      <Property Name="SelectedTeam2" />
+    </ShowAsAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

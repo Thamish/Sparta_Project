@@ -1,4 +1,5 @@
 ﻿using CRUDManager;
+using EF;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -51,9 +52,9 @@ namespace FootballManagerApp
         {
             if (simed == false)
             {
-                if (Team1.SelectedItem != null && Team1.SelectedItem != null)
+                if (_crudManager.SelectedTeam1 != null && _crudManager.SelectedTeam2 != null)
                 {
-                    if (Team1.SelectedItem != Team2.SelectedItem)
+                    if (_crudManager.SelectedTeam1.TeamName != _crudManager.SelectedTeam2.TeamName)
                     {
                         var game = CRUDManager.Simgame.Simulate(_crudManager.SelectedTeam1,
                             CRUDManager.Simgame.GetRoster(CRUDManager.Simgame.GetSelectedPlayers(_crudManager.SelectedTeam1)),
