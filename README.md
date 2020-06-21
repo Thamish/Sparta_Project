@@ -15,6 +15,14 @@ My project goal is to create a football manager with a WPF front end, a database
 
 My sprint goal was to get set up so I would be able create my project
 
+**Project Board At Start**
+
+![](/FootballManagerApp/Images/Sprint1Start.PNG)
+
+**Project Board At End**
+
+![](/FootballManagerApp/Images/Sprint1End.PNG)
+
 **Output Of Sprint Review**
 
 Competed all the items in the backlog for this sprint 
