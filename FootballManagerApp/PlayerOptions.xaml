@@ -13,8 +13,8 @@
 
     <Grid>
         <Button x:Name="Home" Content="Home" HorizontalAlignment="Left" Height="47" Margin="10,10,0,0" VerticalAlignment="Top" Width="66" FontSize="16" Click="Home_Click"/>
-        <Button x:Name="AddPlayerButton" Content="Add Player" HorizontalAlignment="Left" Height="68" Margin="180,259,0,0" VerticalAlignment="Top" Width="139" FontSize="18" Click="AddPlayerButton_Click"/>
-        <Button x:Name="EditPlayerButton" Content="Edit Player" HorizontalAlignment="Left" Height="68" Margin="441,259,0,0" VerticalAlignment="Top" Width="139" FontSize="18" Click="EditPlayerButton_Click"/>
-        <Button x:Name="RemovePlayerButton" Content="Remove Player" HorizontalAlignment="Left" Height="68" Margin="180,378,0,0" VerticalAlignment="Top" Width="139" FontSize="18" Click="RemovePlayerButton_Click"/>
+        <Button x:Name="AddPlayerButton" Content="Add Player" HorizontalAlignment="Left" Height="68" Margin="173,245,0,0" VerticalAlignment="Top" Width="139" FontSize="18" Click="AddPlayerButton_Click"/>
+        <Button x:Name="EditPlayerButton" Content="Edit Player" HorizontalAlignment="Left" Height="68" Margin="482,245,0,0" VerticalAlignment="Top" Width="138" FontSize="18" Click="EditPlayerButton_Click"/>
+        <Button x:Name="RemovePlayerButton" Content="Remove Player" HorizontalAlignment="Center" Height="68" Margin="0,350,0,0" VerticalAlignment="Top" Width="140" FontSize="18" Click="RemovePlayerButton_Click"/>
     </Grid>
 </Page>

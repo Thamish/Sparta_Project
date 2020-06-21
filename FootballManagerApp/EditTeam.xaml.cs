@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using EF;
 using CRUDManager;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace FootballManagerApp
 {
@@ -138,6 +139,36 @@ namespace FootballManagerApp
                 SquadListBox.ItemsSource = null;
                 SquadListBox.ItemsSource = _crudManager.SelectedPlayers;
             }
+        }
+
+        private void MatchesPlayedText_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = new Regex("[^0-9]+").IsMatch(e.Text);
+        }
+
+        private void WinsText_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = new Regex("[^0-9]+").IsMatch(e.Text);
+        }
+
+        private void DrawsText_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = new Regex("[^0-9]+").IsMatch(e.Text);
+        }
+
+        private void LossesText_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = new Regex("[^0-9]+").IsMatch(e.Text);
+        }
+
+        private void GoalsConcededText_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = new Regex("[^0-9]+").IsMatch(e.Text);
+        }
+
+        private void GoalsScoredText_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = new Regex("[^0-9]+").IsMatch(e.Text);
         }
     }
     

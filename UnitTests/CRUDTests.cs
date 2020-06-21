@@ -2,8 +2,8 @@ using NUnit.Framework;
 using CRUDManager;
 using EF;
 using System.Linq;
-using Microsoft.VisualBasic;
 using System;
+using System.Collections.Generic;
 
 namespace UnitTests
 {
@@ -115,5 +115,72 @@ namespace UnitTests
             Assert.AreEqual(result, expected);
         }
 
+        [Test]
+        public void EditPlayer()
+        {
+            string expected;
+            string result;
+            Players newPlayer;
+            Positions newPlayerPos;
+            using (var db = new FootballContext())
+            {
+                expected = "Changed";
+                Players newplayer = new Players
+                {
+                    FirstName = "Test",
+                    PositionId = 1,
+                    LastName = "Test",
+                    DateOfBirth = DateTime.Parse("1111/11/11"),
+                    Nationality = "Test"
+                };
+                Positions pos =
+                    db.Positions.Where(o => o.PositionId == newplayer.PositionId).FirstOrDefault();
+                db.Players.Add(newplayer);
+                newPlayer = newplayer;
+                newPlayerPos = pos;
+                db.SaveChanges();
+            }
+            CRUDManager.Program.SavePlayer("Changed", "Test", "Test", DateTime.Parse("1111/11/11"),newPlayerPos, newPlayer,
+                new List<Teams>());
+            using (var db = new FootballContext())
+            {
+                var newplayer =
+                    db.Players.Where(o => o.PlayerId == newPlayer.PlayerId).FirstOrDefault();
+                result = newplayer.FirstName;
+                db.Remove(newplayer);
+                db.SaveChanges();
+            }
+            
+            Assert.AreEqual(result, expected);
+        }
+        public void EditTeam()
+        {
+            string expected = "Changed";
+            string result;
+            Teams NewTeam;
+            using (var db = new FootballContext())
+            {
+                Teams newTeam = new Teams
+                {
+                    TeamName = "Test"
+                };
+                db.Teams.Add(newTeam);
+                NewTeam = newTeam;
+                db.SaveChanges();
+            }
+            CRUDManager.Program.SaveTeam(NewTeam, NewTeam.TeamName, 0, 0, 0, 0, 0, 0, new List<Players>());
+            using (var db = new FootballContext())
+            {
+                var newTeam =
+                    db.Teams.Where(o => o.TeamId == NewTeam.TeamId).FirstOrDefault();
+                var teamStats =
+                    db.TeamStatistics.Where(o => o.TeamId == NewTeam.TeamId).FirstOrDefault();
+                result = newTeam.TeamName;
+                db.Remove(teamStats);
+                db.Remove(newTeam);
+                db.SaveChanges();
+            }
+            Assert.AreEqual(result, expected);
+        }
     }
 }

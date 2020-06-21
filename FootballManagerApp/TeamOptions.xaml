@@ -13,8 +13,8 @@
             <ImageBrush Stretch="Fill" ImageSource="/Background.jpg"/>
         </Grid.Background>
         <Button x:Name="Home" Content="Home" HorizontalAlignment="Left" Height="47" Margin="10,10,0,0" VerticalAlignment="Top" Width="66" FontSize="16" Click="Home_Click"/>
-        <Button x:Name="AddTeamButton" Content="Add Team" HorizontalAlignment="Left" Height="68" Margin="180,259,0,0" VerticalAlignment="Top" Width="139" FontSize="18" Click="AddTeamButton_Click"/>
-        <Button x:Name="EditTeamButton" Content="Edit Team" HorizontalAlignment="Left" Height="68" Margin="441,259,0,0" VerticalAlignment="Top" Width="139" FontSize="18" Click="EditTeamButton_Click"/>
-        <Button x:Name="RemoveTeamButton" Content="Remove Team" HorizontalAlignment="Left" Height="68" Margin="180,372,0,0" VerticalAlignment="Top" Width="139" FontSize="18" Click="RemoveTeamButton_Click"/>
+        <Button x:Name="AddTeamButton" Content="Add Team" HorizontalAlignment="Left" Height="68" Margin="161,232,0,0" VerticalAlignment="Top" Width="139" FontSize="18" Click="AddTeamButton_Click"/>
+        <Button x:Name="EditTeamButton" Content="Edit Team" HorizontalAlignment="Left" Height="68" Margin="503,232,0,0" VerticalAlignment="Top" Width="139" FontSize="18" Click="EditTeamButton_Click"/>
+        <Button x:Name="RemoveTeamButton" Content="Remove Team" HorizontalAlignment="Center" Height="68" Margin="0,356,0,0" VerticalAlignment="Top" Width="140" FontSize="18" Click="RemoveTeamButton_Click"/>
     </Grid>
 </Page>
