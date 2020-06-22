@@ -185,7 +185,7 @@ Competed all the items in the backlog for this sprint
 
 - Create unit tests as I create my code and not wait till the end
 
-<strong>WHAT I WOULD DO Next</strong> :
+<strong>WHAT I WOULD DO NEXT</strong> :
 
 - Add more detail to the simulate function
 
