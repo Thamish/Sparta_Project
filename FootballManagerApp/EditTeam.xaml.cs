@@ -36,6 +36,7 @@ namespace FootballManagerApp
             Positionfilter.ItemsSource = positionslist;
             PlayersListBox.ItemsSource = CRUDManager.Program.RetrievePlayers();
             TeamsList.ItemsSource = CRUDManager.Program.RetrieveTeams();
+            SquadListBox.ItemsSource = null;
         }
         private void Home_Click(object sender, RoutedEventArgs e)
         {
@@ -57,6 +58,7 @@ namespace FootballManagerApp
         {
             if (TeamsList.SelectedItem != null)
             {
+                SquadListBox.ItemsSource = null;
                 _crudManager.SelectedPlayers.Clear();
                 _crudManager.SetSelectedTeam(TeamsList.SelectedItem);
                 SquadListBox.ItemsSource = null;
@@ -135,7 +137,7 @@ namespace FootballManagerApp
         {
             if (SquadListBox.SelectedItem != null)
             {
-                _crudManager.SelectedPlayers.Remove((Players)PlayersListBox.SelectedItem);
+                _crudManager.SelectedPlayers.Remove((Players)SquadListBox.SelectedItem);
                 SquadListBox.ItemsSource = null;
                 SquadListBox.ItemsSource = _crudManager.SelectedPlayers;
             }

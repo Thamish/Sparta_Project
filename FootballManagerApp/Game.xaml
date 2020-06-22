@@ -20,5 +20,5 @@
         <TextBox x:Name="Displaybox" IsReadOnly="True" HorizontalAlignment="Left" Margin="29,126,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="388" Height="436" Background="White"/>
         <Button x:Name="End_button" Content="End" HorizontalAlignment="Left" Margin="616,434,0,0" VerticalAlignment="Top" Height="56" Width="86" Click="Home_Click" FontSize="22"/>
         <TextBox x:Name="Displaybox2" IsReadOnly="True" HorizontalAlignment="Left" Margin="446,126,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="326" Height="218"/>
-    </Grid>
+        </Grid>
 </Page>

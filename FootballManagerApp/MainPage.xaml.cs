@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -22,7 +23,6 @@ namespace FootballManagerApp
         {
             InitializeComponent();
         }
-
         private void PlayersButton_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new PlayerOptions());
@@ -37,5 +37,6 @@ namespace FootballManagerApp
         {
             this.NavigationService.Navigate(new Game());
         }
+
     }
 }
