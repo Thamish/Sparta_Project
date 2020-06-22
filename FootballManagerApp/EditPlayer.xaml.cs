@@ -99,13 +99,20 @@ namespace FootballManagerApp
         {
             if (_crudManager.SelectedTeam != null)
             {
-                _crudManager.SelectedTeams.Add(_crudManager.SelectedTeam);
-                SelectedTeamsBox.ItemsSource = null;
-                SelectedTeamsBox.ItemsSource = _crudManager.SelectedTeams;
-                _all_teams.Remove(_crudManager.SelectedTeam);
-                Teamsbox.ItemsSource = null;
-                Teamsbox.ItemsSource = _all_teams;
-                _crudManager.SelectedTeam = null;
+                if (CRUDManager.Program.GetTeamSize(_crudManager.SelectedTeam) < 11)
+                {
+                    _crudManager.SelectedTeams.Add(_crudManager.SelectedTeam);
+                    SelectedTeamsBox.ItemsSource = null;
+                    SelectedTeamsBox.ItemsSource = _crudManager.SelectedTeams;
+                    _all_teams.Remove(_crudManager.SelectedTeam);
+                    Teamsbox.ItemsSource = null;
+                    Teamsbox.ItemsSource = _all_teams;
+                    _crudManager.SelectedTeam = null;
+                }
+                else
+                {
+                    MessageBox.Show("Team Full");
+                }
             }
             else
             {

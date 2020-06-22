@@ -25,8 +25,14 @@ namespace FootballManagerApp
         public Game()
         {
             InitializeComponent();
-            Team1.ItemsSource = CRUDManager.Program.RetrieveTeams();
-            Team2.ItemsSource = CRUDManager.Program.RetrieveTeams();
+            foreach (Teams team in CRUDManager.Program.RetrieveTeams())
+            {
+                if (CRUDManager.Program.GetTeamSize(team) == 11)
+                {
+                    Team1.Items.Add(team);
+                    Team2.Items.Add(team);
+                }
+            }
         }
         private void Home_Click(object sender, RoutedEventArgs e)
         {

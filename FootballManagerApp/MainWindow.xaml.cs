@@ -18,5 +18,11 @@ namespace FootballManagerApp
         {
             frame.NavigationService.Navigate(new MainPage());
         }
+
+        private void Sound_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            Sound.Position = System.TimeSpan.Zero;
+            Sound.Play();
+        }
     }
 }
