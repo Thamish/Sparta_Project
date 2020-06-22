@@ -1,5 +1,5 @@
 # FOOTBALL MANAGER
-My project goal is to create a football manager with a WPF front end, a database (with players and teams) and a middle layer to conncet the front end and the backend database. 
+My project goal is to create a football manager with a WPF front end, a database (with players and teams) and a middle layer to connect the front end and the backend database. 
 
 **Project definition of done**
 - [ ] Created a Github repository
