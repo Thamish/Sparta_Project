@@ -84,9 +84,14 @@ namespace FootballManagerApp
             if (TeamNameText.Text != "" && TeamNameText.Text != "Team Name")
             {
                 CRUDManager.Program.SubmitTeam(TeamNameText.Text, _crudManager.SelectedPlayers);
+                MessageBox.Show("Team Added");
+                this.NavigationService.Navigate(new TeamOptions());
             }
-            MessageBox.Show("Team Added");
-            this.NavigationService.Navigate(new TeamOptions());
+            else
+            {
+                MessageBox.Show("Team Not Added");
+            }
+           
         }
 
         private void FirstNameFilter_TextChanged(object sender, TextChangedEventArgs e)

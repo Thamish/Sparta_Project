@@ -20,7 +20,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="EF.Players">
-    <Position X="20.75" Y="6.25" Width="2.25" />
+    <Position X="20.75" Y="4.25" Width="2.25" />
     <TypeIdentifier />
   </Class>
   <Class Name="EF.Teams">
@@ -60,7 +60,7 @@
   <Class Name="FootballManagerApp.MainWindow">
     <Position X="3.5" Y="5.25" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAABA=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
